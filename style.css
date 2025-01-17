@@ -19,7 +19,7 @@ body {
 
 /* Top Bar */
 .top-bar {
-    background-color: #F04532; /* Red top bar (Bootstrap danger color) */
+    background-color: #F04532;
     color: white;
     padding: 10px;
     display: flex;
@@ -156,9 +156,6 @@ body {
     display: flex;
     gap: 10px;
     color: #555;
-}
-
-.actions i{
     cursor: pointer;
 }
 
@@ -232,6 +229,11 @@ body {
     gap: 10px;
 }
 
+/* Side Menu Icon Color */
+#side-menu li a i {
+    color: #F04532;
+}
+
 /* Calendar Styles */
 #calendar {
     width: 100%;
@@ -251,15 +253,20 @@ body {
 }
 
 #days-grid div {
-    padding: 10px;
+    padding: 10px 5px;
     text-align: center;
     border: 1px solid #eee;
     cursor: pointer;
     position: relative;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#days-grid .today {
-    background-color: #e0f2f7;
+#days-grid div > span:first-child {
+    margin-top: 5px;
 }
 
 .event-text {
@@ -270,6 +277,11 @@ body {
     padding: 2px 4px;
     border-radius: 3px;
     color: white;
+    overflow: clip; /* Key change: clipping */
+    text-overflow: ellipsis; /* Key change: ellipsis */
+    width: calc(100% - 4px);
+    box-sizing: border-box;
+    margin-bottom: 2px;
 }
 
 /* Media Queries for Responsiveness */
@@ -277,29 +289,4 @@ body {
     .image-grid {
         grid-template-columns: 1fr;
     }
-}
-/* Side Menu Icon Color */
-#side-menu li a i {
-    color: #F04532; /* Red sidebar icons */
-}
-#days-grid div {
-    padding: 10px 5px; /* Reduced top/side padding */
-    text-align: center;
-    border: 1px solid #eee;
-    cursor: pointer;
-    position: relative;
-    min-height: 60px; /* Increased min-height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Distribute space between date and events */
-}
-
-#days-grid div > span:first-child{ /*Target the date number*/
-    margin-top: 5px;
-}
-
-.event-text {
-    /* ... (rest of the event-text styles) */
-    margin-bottom: 2px; /* Add a small bottom margin */
 }
