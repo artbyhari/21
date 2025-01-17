@@ -237,7 +237,6 @@ if (year === 2025 && month === 2 && day >= 10 && day <= 14) {
         events.push({ name: subjects[subjectIndex], color: "blue" });
     }
 
-
 if (year === 2025 && month === 2 && day >= 17 && day <= 21) {
         const subjects = [
             "Programming Fundamentals",
@@ -250,6 +249,7 @@ if (year === 2025 && month === 2 && day >= 17 && day <= 21) {
         const subjectIndex = (day - 17) % subjects.length;
         events.push({ name: subjects[subjectIndex], color: "blue" });
     }
+
 
 if (year === 2025 && month === 2 && day >= 24 && day <= 28) {
         const subjects = [
@@ -400,7 +400,7 @@ if (searchIcon && searchInput && searchBar) {
     });
 
     searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value;
+        const searchTerm = searchInput.value;f
         console.log("Searching for:", searchTerm);
     });
 }
