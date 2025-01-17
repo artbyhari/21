@@ -1,20 +1,18 @@
 // script.js
-// ... (Existing JavaScript code)
 
 // Mobile Detection and Layout Adjustment
 function adjustLayoutForMobile() {
-    if (window.innerWidth <= 768) { // Adjust breakpoint as needed
+    if (window.innerWidth <= 768) {
         document.body.classList.add('mobile-layout');
     } else {
         document.body.classList.remove('mobile-layout');
     }
 }
 
-// Call on load and resize
 window.addEventListener('load', adjustLayoutForMobile);
 window.addEventListener('resize', adjustLayoutForMobile);
 
-// ... (Rest of your script.js)
+// Toggle Menu
 function toggleMenu() {
     const menu = document.getElementById('side-menu');
     if (menu) {
@@ -108,12 +106,37 @@ function displayCalendar() {
 function getEventsForDay(year, month, day) {
     const events = [];
 
-    if (year === 2024 && month === 12 && (day === 22 || day === 25)) {
-        events.push({ name: "Christmas", color: "red" });
-    }
-
+    // Winter Vacation (Dec 25 - Jan 14)
     if ((year === 2024 && month === 12 && day >= 25) || (year === 2025 && month === 1 && day <= 14)) {
         events.push({ name: "Winter Vacation", color: "green" });
+    }
+
+    // Subject events (Dec 1-22 and Jan 15-30)
+    if (year === 2024 && month === 12 && day >= 1 && day <= 22) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        // Distribute subjects over the days
+        const subjectIndex = (day - 1) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+
+    }
+    if (year === 2025 && month === 1 && day >= 15 && day <= 30) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 15) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
     }
 
     return events;
@@ -131,7 +154,7 @@ nextMonthBtn.addEventListener('click', () => {
 
 displayCalendar();
 
-// Event Listeners (Corrected and Consolidated)
+// Event Listeners (Consolidated)
 const eventListeners = [
     { id: 'menu-btn', listener: toggleMenu },
     { id: 'home-btn', listener: () => switchContent('home-content') },
@@ -158,7 +181,6 @@ eventListeners.forEach(item => {
         element.addEventListener('click', item.listener);
     }
 });
-
 
 // Search Bar
 const searchBar = document.querySelector('.search-bar');
