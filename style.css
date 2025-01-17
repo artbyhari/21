@@ -19,7 +19,7 @@ body {
 
 /* Top Bar */
 .top-bar {
-    background-color: #dc3545; /* Red top bar (Bootstrap danger color) */
+    background-color: #F04532; /* Red top bar (Bootstrap danger color) */
     color: white;
     padding: 10px;
     display: flex;
