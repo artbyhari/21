@@ -112,7 +112,7 @@ function getEventsForDay(year, month, day) {
     }
 
     // Subject events (Dec 1-22 and Jan 15-30)
-    if (year === 2024 && month === 12 && day >= 1 && day <= 22) {
+    if (year === 2024 && month === 12 && day >= 2 && day <= 6) {
         const subjects = [
             "Programming Fundamentals",
             "Web Development I",
@@ -126,7 +126,53 @@ function getEventsForDay(year, month, day) {
         events.push({ name: subjects[subjectIndex], color: "blue" });
 
     }
-    if (year === 2025 && month === 1 && day >= 15 && day <= 30) {
+if (year === 2024 && month === 12 && day >= 9 && day <= 13) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        // Distribute subjects over the days
+        const subjectIndex = (day - 1) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+
+    }
+
+if (year === 2024 && month === 12 && day >= 16 && day <= 20) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        // Distribute subjects over the days
+        const subjectIndex = (day - 1) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+
+    }
+
+if (year === 2024 && month === 12 && day >= 23 && day <= 24) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        // Distribute subjects over the days
+        const subjectIndex = (day - 1) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+
+    }
+
+
+    if (year === 2025 && month === 1 && day >= 15 && day <= 17) {
         const subjects = [
             "Programming Fundamentals",
             "Web Development I",
@@ -136,6 +182,148 @@ function getEventsForDay(year, month, day) {
             "Introduction to Databases"
         ];
         const subjectIndex = (day - 15) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 1 && day >= 20 && day <= 24) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 15) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 1 && day >= 27 && day <= 31) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 15) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 2 && day >= 3 && day <= 7) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 3) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 2 && day >= 10 && day <= 14) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 10) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+
+if (year === 2025 && month === 3 && day >= 17 && day <= 21) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 17) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 2 && day >= 24 && day <= 28) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 24) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 3 && day >= 3 && day <= 7) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 3) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 3 && day >= 10 && day <= 14) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 10) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+if (year === 2025 && month ===  3&& day >= 3 && day <= 21) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 17) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+
+if (year === 2025 && month === 3 && day >= 24 && day <= 28) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 24) % subjects.length;
+        events.push({ name: subjects[subjectIndex], color: "blue" });
+    }
+if (year === 2025 && month === 3 && day >= 31 && day <= 31) {
+        const subjects = [
+            "Programming Fundamentals",
+            "Web Development I",
+            "Data Structures and Algorithms I",
+            "Object-Oriented Programming",
+            "Discrete Mathematics",
+            "Introduction to Databases"
+        ];
+        const subjectIndex = (day - 31) % subjects.length;
         events.push({ name: subjects[subjectIndex], color: "blue" });
     }
 
