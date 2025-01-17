@@ -1,0 +1,1635 @@
+body {
+    margin: 0;
+    background-color: #F04532;
+    font-family: sans-serif;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2; /* Ensure top bar stays on top */
+}
+
+.left-icons i {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 8px 15px;
+}
+
+.search-bar i {
+    margin-right: 8px;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative; /* Needed for absolute positioning of academic screen */
+}
+
+.post {
+    background-color: #fff;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+
+.post-info {
+    margin-left: 15px;
+}
+
+.post-body {
+    margin-top: 10px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.stats p {
+    margin-right: 15px;
+}
+
+.actions i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Bottom Bar */
+.bottom-bar {
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 2; /* Ensure bottom bar stays on top */
+}
+
+.bottom-bar i {
+    font-size: 20px;
+}
+
+/* Academic Screen Styles */
+.academic-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* White background */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border: 2px solid #c0392b; /* Red border */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.academic-screen.active {
+  transform: translateX(0);
+}
+
+.term-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff; /* White background */
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.term-container h3 {
+  margin-bottom: 5px;
+  color: #c0392b; /* Red color for subject names */
+  font-weight: bold;
+}
+
+.term-container p {
+  margin: 0;
+  color: #555; /* Dark gray color for attendance and scores */
+}
+
+.term-container p span {
+  color: #c0392b; /* Highlight numbers in red */
+  font-weight: bold;
+}
+
+.term-container .attendance-progress {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.term-container .attendance-progress span {
+  margin-left: 5px;
+  font-size: 0.9em;
+}
+.term {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.term h3 {
+    margin-top: 0;
+}
+
+.term ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.term li {
+    margin-bottom: 5px;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+/* Smooth horizontal scroll transition */
+.content::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px; 
+}
+
+.content::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.content::-webkit-scrollbar {
+  width: 6px; 
+}
+ .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: transparent; 
+    border: none; 
+    padding: 0; 
+  }
+
+  .search-bar input {
+    display: none; 
+  }
+
+  .search-bar.active {
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 8px 15px;
+  }
+
+  .search-bar.active input {
+    display: block; 
+    margin-left: 8px; 
+    border: none; 
+    background-color: transparent; 
+  }
+/* ... (Existing CSS) */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+}
+
+.content-area { /* Styles for all content areas */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transform: translateX(100%); /* Initially off-screen */
+    transition: transform 0.3s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border: 2px solid #c0392b;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content-area.active {
+    transform: translateX(0); /* Slide in */
+}
+
+/* ... (Rest of your CSS) */
+/* ... (Other CSS) */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 15px; /* Add padding to the content area */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+.content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F04532; /* Match body background */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto; /* Allow scrolling within content areas */
+    box-sizing: border-box;
+}
+
+.content-area.active {
+    transform: translateX(0);
+}
+
+/* Post Styles (Corrected) */
+.post {
+    background-color: #fff;
+    margin-bottom: 15px; /* Add margin between posts */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* ... (Rest of your CSS) */
+/* ... (Other CSS) */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F04532; /* Match body background */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack heading and content */
+}
+
+.content-area.active {
+    transform: translateX(0);
+}
+
+.content-area h1 { /* Style for page headings */
+    background-color: white;
+    padding: 10px 15px;
+    margin: 0; /* Remove default margins */
+    text-align: center; /* Center the text */
+    font-size: 1.2em; /* Adjust font size as needed */
+    border-bottom: 1px solid #ddd; /* Add a subtle bottom border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Styles */
+.post {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.content-area > *:not(h1) {
+    padding: 15px;
+}
+
+/* ... (Rest of your CSS) */
+
+#side-menu {
+    position: fixed; /* Or absolute, depending on your layout */
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3; /* Ensure it's on top */
+}
+
+#side-menu.open {
+    transform: translateX(250px); /* Slide in */
+}
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3; /* Ensure it's on top */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+#side-menu.open {
+    transform: translateX(250px);
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee; /* Separator lines */
+}
+
+#side-menu a {
+    display: block; /* Make the whole list item clickable */
+    padding: 15px;
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    transition: background-color 0.2s ease; /* Hover effect */
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    overflow-y: auto;
+}
+
+#side-menu.open {
+    transform: translateX(250px);
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+#side-menu a {
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center; /* Vertically align icon and text */
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+#side-menu a i { /* Style for the icons */
+    margin-right: 10px; /* Space between icon and text */
+    color: #F04532; /* Red color for icons */
+    font-size: 1.2em; /* Adjust icon size as needed */
+    width: 20px; /* Set a fixed width for consistent spacing */
+    text-align: center; /* Center the icon within its width */
+}
+/* ... (Other CSS) */
+#calendar {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+#month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days in a week */
+    grid-gap: 5px;
+}
+
+#days-grid div {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+/* ... other CSS ... */
+
+#calendar {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white; /* Ensure calendar background is white */
+}
+
+#month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+}
+
+#days-grid div {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: white; /* Date blocks are now white */
+    color: #333; /* Set default text color to dark gray */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition for hover */
+}
+
+#days-grid div:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    cursor: pointer; /* Indicate clickable element */
+}
+/* Style for today's date */
+#days-grid div.today {
+    background-color: #F04532; /* Red background for today */
+    color: white; /* White text for contrast */
+    font-weight: bold;
+}
+/* style.css */
+/* ... other CSS ... */
+
+#calendar {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+}
+
+#month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(50px, auto); /* Key change: variable height rows */
+    grid-gap: 5px;
+}
+
+#days-grid div {
+    padding: 8px;
+    text-align: left; /* Align text to the left */
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    overflow: hidden; /* Prevent content from overflowing */
+    position: relative; /* Needed for absolute positioning of event indicators */
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking of content */
+    align-items: flex-start; /* Align items to the top left */
+    min-height: 50px; /* Minimum height for better touch targets */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#days-grid div:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+#days-grid div.today {
+    background-color: #F04532;
+    color: white;
+    font-weight: bold;
+}
+
+.event-indicator {
+    position: absolute;
+    bottom: 2px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: blue; /* Example event color */
+}
+
+.event-text {
+    font-size: 0.8em; /* Smaller font size for events */
+    margin-top: 2px; /* Small margin between date and events */
+}
+/* style.css */
+/* ... other CSS ... */
+
+.event-text {
+    font-size: 0.7em; /* Even smaller font size */
+    margin-top: 2px;
+    padding: 2px 4px; /* Add some padding around text */
+    border-radius: 4px; /* Rounded corners */
+    color: white; /* White text for contrast */
+    display: inline-block; /* Make the background color work correctly */
+    margin-bottom: 2px; /* Add space between multiple events */
+}
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(60px, auto); /* Key change: variable height rows */
+    grid-gap: 5px;
+}
+#days-grid div {
+    padding: 8px 5px;
+    text-align: left; /* Align text to the left */
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    overflow: hidden; /* Prevent content from overflowing */
+    position: relative; /* Needed for absolute positioning of event indicators */
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking of content */
+    align-items: flex-start; /* Align items to the top left */
+    min-height: 60px; /* Minimum height for better touch targets */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9em;
+}
+/* style.css */
+/* ... (Other CSS) */
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    overflow-y: auto;
+    display: flex; /* Use flexbox for vertical layout */
+    flex-direction: column;
+}
+
+#side-menu.open {
+    transform: translateX(250px);
+}
+
+.menu-header {
+    background-color: #F04532; /* Red background */
+    padding: 20px;
+    text-align: center; /* Center the image */
+    margin-bottom: 20px; /* Add some space below */
+}
+
+.menu-header img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Allow list to take up available space */
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+#side-menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+#side-menu a i {
+    margin-right: 10px;
+    color: #F04532;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+/* style.css */
+/* ... other styles */
+
+#side-menu {
+    /* ... other styles */
+    display: flex;
+    flex-direction: column; /* Ensure vertical layout */
+}
+
+.user-info {
+    background-color: #F04532; /* Red background */
+    color: white; /* White text */
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em; /* Adjust font size as needed */
+}
+.user-info p{
+    margin: 3px 0;
+}
+.menu-header {
+    background-color: #F04532; /* Red background */
+    padding: 10px;
+    text-align: center; /* Center the image */
+    margin-bottom: 10px; /* Add some space below */
+}
+
+.menu-header img {
+    width: 80px; /* Adjust size as needed */
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Allow list to take up available space */
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+#side-menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+#side-menu a i {
+    margin-right: 10px;
+    color: #F04532;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+body {
+    margin: 0;
+    background-color: #F04532;
+    font-family: sans-serif;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2; /* Ensure top bar stays on top */
+}
+
+.left-icons i {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 8px 15px;
+}
+
+.search-bar i {
+    margin-right: 8px;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative; /* Needed for absolute positioning of academic screen */
+}
+
+.post {
+    background-color: #fff;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+
+.post-info {
+    margin-left: 15px;
+}
+
+.post-body {
+    margin-top: 10px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.stats p {
+    margin-right: 15px;
+}
+
+.actions i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Bottom Bar */
+.bottom-bar {
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 2; /* Ensure bottom bar stays on top */
+}
+
+.bottom-bar i {
+    font-size: 20px;
+}
+
+/* Academic Screen Styles */
+.academic-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* White background */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border: 2px solid #c0392b; /* Red border */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.academic-screen.active {
+  transform: translateX(0);
+}
+
+.term-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff; /* White background */
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.term-container h3 {
+  margin-bottom: 5px;
+  color: #c0392b; /* Red color for subject names */
+  font-weight: bold;
+}
+
+.term-container p {
+  margin: 0;
+  color: #555; /* Dark gray color for attendance and scores */
+}
+
+.term-container p span {
+  color: #c0392b; /* Highlight numbers in red */
+  font-weight: bold;
+}
+
+.term-container .attendance-progress {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.term-container .attendance-progress span {
+  margin-left: 5px;
+  font-size: 0.9em;
+}
+.term {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.term h3 {
+    margin-top: 0;
+}
+
+.term ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.term li {
+    margin-bottom: 5px;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+/* Smooth horizontal scroll transition */
+.content::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px; 
+}
+
+.content::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.content::-webkit-scrollbar {
+  width: 6px; 
+}
+ .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: transparent; 
+    border: none; 
+    padding: 0; 
+  }
+
+  .search-bar input {
+    display: none; 
+  }
+
+  .search-bar.active {
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 8px 15px;
+  }
+
+  .search-bar.active input {
+    display: block; 
+    margin-left: 8px; 
+    border: none; 
+    background-color: transparent; 
+  }
+/* ... (Existing CSS) */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+}
+
+.content-area { /* Styles for all content areas */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transform: translateX(100%); /* Initially off-screen */
+    transition: transform 0.3s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border: 2px solid #c0392b;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content-area.active {
+    transform: translateX(0); /* Slide in */
+}
+
+/* ... (Rest of your CSS) */
+/* ... (Other CSS) */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 15px; /* Add padding to the content area */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+.content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F04532; /* Match body background */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto; /* Allow scrolling within content areas */
+    box-sizing: border-box;
+}
+
+.content-area.active {
+    transform: translateX(0);
+}
+
+/* Post Styles (Corrected) */
+.post {
+    background-color: #fff;
+    margin-bottom: 15px; /* Add margin between posts */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* ... (Rest of your CSS) */
+/* ... (Other CSS) */
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F04532; /* Match body background */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack heading and content */
+}
+
+.content-area.active {
+    transform: translateX(0);
+}
+
+.content-area h1 { /* Style for page headings */
+    background-color: white;
+    padding: 10px 15px;
+    margin: 0; /* Remove default margins */
+    text-align: center; /* Center the text */
+    font-size: 1.2em; /* Adjust font size as needed */
+    border-bottom: 1px solid #ddd; /* Add a subtle bottom border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Styles */
+.post {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.content-area > *:not(h1) {
+    padding: 15px;
+}
+
+/* ... (Rest of your CSS) */
+
+#side-menu {
+    position: fixed; /* Or absolute, depending on your layout */
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3; /* Ensure it's on top */
+}
+
+#side-menu.open {
+    transform: translateX(250px); /* Slide in */
+}
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3; /* Ensure it's on top */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+#side-menu.open {
+    transform: translateX(250px);
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee; /* Separator lines */
+}
+
+#side-menu a {
+    display: block; /* Make the whole list item clickable */
+    padding: 15px;
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    transition: background-color 0.2s ease; /* Hover effect */
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    overflow-y: auto;
+}
+
+#side-menu.open {
+    transform: translateX(250px);
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+#side-menu a {
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center; /* Vertically align icon and text */
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+#side-menu a i { /* Style for the icons */
+    margin-right: 10px; /* Space between icon and text */
+    color: #F04532; /* Red color for icons */
+    font-size: 1.2em; /* Adjust icon size as needed */
+    width: 20px; /* Set a fixed width for consistent spacing */
+    text-align: center; /* Center the icon within its width */
+}
+/* ... (Other CSS) */
+#calendar {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+#month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days in a week */
+    grid-gap: 5px;
+}
+
+#days-grid div {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+/* ... other CSS ... */
+
+#calendar {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white; /* Ensure calendar background is white */
+}
+
+#month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+}
+
+#days-grid div {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: white; /* Date blocks are now white */
+    color: #333; /* Set default text color to dark gray */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition for hover */
+}
+
+#days-grid div:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    cursor: pointer; /* Indicate clickable element */
+}
+/* Style for today's date */
+#days-grid div.today {
+    background-color: #F04532; /* Red background for today */
+    color: white; /* White text for contrast */
+    font-weight: bold;
+}
+/* style.css */
+/* ... other CSS ... */
+
+#calendar {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+}
+
+#month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(50px, auto); /* Key change: variable height rows */
+    grid-gap: 5px;
+}
+
+#days-grid div {
+    padding: 8px;
+    text-align: left; /* Align text to the left */
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    overflow: hidden; /* Prevent content from overflowing */
+    position: relative; /* Needed for absolute positioning of event indicators */
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking of content */
+    align-items: flex-start; /* Align items to the top left */
+    min-height: 50px; /* Minimum height for better touch targets */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#days-grid div:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+#days-grid div.today {
+    background-color: #F04532;
+    color: white;
+    font-weight: bold;
+}
+
+.event-indicator {
+    position: absolute;
+    bottom: 2px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: blue; /* Example event color */
+}
+
+.event-text {
+    font-size: 0.8em; /* Smaller font size for events */
+    margin-top: 2px; /* Small margin between date and events */
+}
+/* style.css */
+/* ... other CSS ... */
+
+.event-text {
+    font-size: 0.7em; /* Even smaller font size */
+    margin-top: 2px;
+    padding: 2px 4px; /* Add some padding around text */
+    border-radius: 4px; /* Rounded corners */
+    color: white; /* White text for contrast */
+    display: inline-block; /* Make the background color work correctly */
+    margin-bottom: 2px; /* Add space between multiple events */
+}
+#days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(60px, auto); /* Key change: variable height rows */
+    grid-gap: 5px;
+}
+#days-grid div {
+    padding: 8px 5px;
+    text-align: left; /* Align text to the left */
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    overflow: hidden; /* Prevent content from overflowing */
+    position: relative; /* Needed for absolute positioning of event indicators */
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking of content */
+    align-items: flex-start; /* Align items to the top left */
+    min-height: 60px; /* Minimum height for better touch targets */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9em;
+}
+/* style.css */
+/* ... (Other CSS) */
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    overflow-y: auto;
+    display: flex; /* Use flexbox for vertical layout */
+    flex-direction: column;
+}
+
+#side-menu.open {
+    transform: translateX(250px);
+}
+
+.menu-header {
+    background-color: #F04532; /* Red background */
+    padding: 20px;
+    text-align: center; /* Center the image */
+    margin-bottom: 20px; /* Add some space below */
+}
+
+.menu-header img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Allow list to take up available space */
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+#side-menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+#side-menu a i {
+    margin-right: 10px;
+    color: #F04532;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+/* style.css */
+/* ... other styles */
+
+#side-menu {
+    /* ... other styles */
+    display: flex;
+    flex-direction: column; /* Ensure vertical layout */
+}
+
+.user-info {
+    background-color: #F04532; /* Red background */
+    color: white; /* White text */
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em; /* Adjust font size as needed */
+}
+.user-info p{
+    margin: 3px 0;
+}
+.menu-header {
+    background-color: #F04532; /* Red background */
+    padding: 10px;
+    text-align: center; /* Center the image */
+    margin-bottom: 10px; /* Add some space below */
+}
+
+.menu-header img {
+    width: 80px; /* Adjust size as needed */
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Allow list to take up available space */
+}
+
+#side-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+#side-menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+#side-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+#side-menu a i {
+    margin-right: 10px;
+    color: #F04532;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+/* style.css */
+/* ... (Existing CSS) */
+
+/* Basic Mobile Styles */
+body.mobile-layout .top-bar {
+    padding: 10px; /* Reduced padding */
+}
+
+body.mobile-layout .left-icons i,
+body.mobile-layout .bottom-bar i,
+body.mobile-layout .top-bar .fa-bell { /*Target the bell icon specifically in the top bar*/
+    font-size: 18px; /* Smaller icons */
+    margin: 0 5px;
+}
+body.mobile-layout .top-bar .search-bar {
+    flex-grow: 1;
+}
+body.mobile-layout .top-bar .search-bar input{
+    width: 100%;
+}
+
+body.mobile-layout .bottom-bar {
+    padding: 10px;
+}
+body.mobile-layout .content{
+    padding: 10px;
+}
+
+body.mobile-layout .post {
+    padding: 10px;
+}
+body.mobile-layout .image-grid {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+body.mobile-layout #side-menu {
+    left: -100%; /* Hide completely off-screen */
+    width: 80%; /* Occupy most of the screen when open */
+}
+
+body.mobile-layout #side-menu.open {
+    transform: translateX(100%);
+}
+
+body.mobile-layout .content-area{
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 10px;
+}
+body.mobile-layout .content-area h1{
+    font-size: 1em;
+}
+body.mobile-layout .term-container{
+    flex-direction: column;
+    gap: 10px;
+}
+body.mobile-layout .term{
+    padding: 10px;
+}
+
+/* Add more mobile-specific styles as needed */
+/* ... (Existing CSS) */
+
+/* Basic Mobile Styles */
+body.mobile-layout .top-bar {
+    padding: 10px; /* Reduced padding */
+}
+
+body.mobile-layout .left-icons i,
+body.mobile-layout .bottom-bar i,
+body.mobile-layout .top-bar .fa-bell { /*Target the bell icon specifically in the top bar*/
+    font-size: 18px; /* Smaller icons */
+    margin: 0 5px;
+}
+body.mobile-layout .top-bar .search-bar {
+    flex-grow: 1;
+}
+body.mobile-layout .top-bar .search-bar input{
+    width: 100%;
+}
+
+body.mobile-layout .bottom-bar {
+    padding: 10px;
+}
+body.mobile-layout .content{
+    padding: 10px;
+}
+
+body.mobile-layout .post {
+    padding: 10px;
+}
+body.mobile-layout .image-grid {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+body.mobile-layout #side-menu {
+    left: -100%; /* Hide completely off-screen */
+    width: 80%; /* Occupy most of the screen when open */
+}
+
+body.mobile-layout #side-menu.open {
+    transform: translateX(100%);
+}
+
+body.mobile-layout .content-area{
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 10px;
+}
+body.mobile-layout .content-area h1{
+    font-size: 1em;
+}
+body.mobile-layout .term-container{
+    flex-direction: column;
+    gap: 10px;
+}
+body.mobile-layout .term{
+    padding: 10px;
+}
+
+/* Add more mobile-specific styles as needed */
